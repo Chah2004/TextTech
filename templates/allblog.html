@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\aos.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<style type="text/css">
+		.animated-text{
+			position: relative;
+			-webkit-box-reflect:below -10px linear-gradient(transparent, rgba(0,0,0,.2));
+			font-size: 60px;
+		}
+		.animated-text span{
+			font-family: 'Alfa Slab One', cursive;
+			position: relative;
+			display: inline-block;
+			color: #584420 ;
+			text-transform: uppercase;
+			animation: animated-text 1s infinite;
+			animation-delay: calc(.1s * var(--i));
+
+		}
+
+		@keyframes animated-text{
+			0%, 40%, 100%{
+				transform: translateY(0);
+			}
+			20%{
+				transform: translateY(-20px);
+			}
+		}
+		.card{
+			background-color:#584420; 
+			color: #ECDCAC;
+			box-shadow:2px 2px 2px #584420 !important; 
+		}
+
+		.button:hover{
+			transform: translateY(-3PX) !important;
+      		transition: all ease 0.3s !important;
+      		background-color: white !important;
+      		box-shadow: 2px 2px 2px white !important;
+		}
+
+		.item:hover{
+			animation: zoom-in-zoom-out 1s ease ;
+		}
+
+		@keyframes zoom-in-zoom-out {
+		  50% {
+		    transform: scale(1, 1);
+		  }
+		  30% {
+		    transform: scale(1.1, 1.1);
+		  }
+		  10% {
+		    transform: scale(1, 1);
+		  }
+		}
+
+		body{
+			overflow-x: hidden;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="row" style="background-color: white; ">
+		<div class="row">
+			<div class="col-md-5" style="padding-left: 150px;">
+				<img src="{%static 'images/image.png' %}" class="pb-3" height="250px;" width="300px">
+			</div>
+			<div class="col-md-7 pt-3 " style="padding-left: 100px;">
+				<h1 class="animated-text" style="font-family: 'poppins',sans-serif; font-weight: bold; font-size: 80px; "><strong>
+					<span style="--i:1">B</span>
+					<span style="--i:2">L</span>
+					<span style="--i:3">0</span>
+					<span style="--i:4">G</span>
+					<span style="--i:5">S</span>
+				</strong></h1>
+			
+			</div>	
+		</div>
+
+	    <center>
+	    	<div class="row p-2">
+				{% for i in data %}
+				<div class="col-md-4">
+					<center>
+						<div class="card mb-3 mt-3 shadow-lg item" style="width: 18rem;" data-aos="flip-left">
+					  		<img src="{{i.image.url}}" class="card-img-top" alt="..." height="200px">
+					  		<div class="card-body" style="text-align: justify;">
+						    	<h5 class="card-title text-light">{{i.title|truncatechars:24}}</h5>
+						    	<p class="card-text">{{i.content|truncatechars:95}}</p>
+						    	<a href="{% url 'detail_blog' id=i.id %}" class="button btn" style="background-color: #ECDCAC; color: #584420; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; border-color: #ECDCAC !important; box-shadow: 2px 2px 2px #ECDCAC !important;">Read more</a>
+					  		</div>
+						</div>
+					</center>
+				</div>
+			 
+				<!--
+				<h1>{{i.title}}</h1>
+				{{i.content}}
+				-->
+
+				{% endfor%}
+			</div>
+		</center>
+
+	</div>
+
+
+		<script src='{%static "js\aos.js" %}'></script>
+		<script>
+		  AOS.init()
+		</script>
+
+
+	{% endblock %}
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		h1{
+			color: #584420;
+		}
+		p{
+			text-align: justify;
+			color: #584420;
+		}
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+		body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+	</style>
+</head>
+<body>
+	<div class="row p-3 ">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<center><h1 class="text-center border-bottom border-2  pb-2" style="border-color:#584420 !important; "><span style="color: #B49C6C">Spelling</span> checker</h1>
+			<p class="mb-4" data-aos="zoom-in">Welcome to our spelling checking tool! In a world where clear and effective communication is paramount, even the smallest spelling errors can undermine the credibility and impact of your message. Our platform is designed to empower you with the ability to polish your writing to perfection, ensuring that every word you compose reflects your professionalism and attention to detail.</p></center>
+			<div class="row">
+				<div class="col-md-5 mt-4" data-aos="fade-right">
+					<img src="{%static 'images/feature12.jpg' %}" width="100%" height="310px"><br>
+				</div>
+				<div class="col-md-7" data-aos="fade-left">
+					<form method="POST" action="">
+					{% csrf_token %}
+					<label class="fs-6 fw-bold mt-2 mb-2 ">Text</label> <br>
+					<textarea name="text" class="txt form-control border-2 shadow" rows="6" readonly>{{data}}</textarea>
+
+					<label class="fs-6 fw-bold mt-2 mb-2 ">After Correction</label> <br>
+					<textarea name="text" class="txt form-control border-2 shadow" rows="6" readonly>{{msg}}</textarea>
+					</form>
+				</div>
+			</div>
+			<!--<img src="{%static 'images/feature12.jpg' %}" width="100%" height="300px"><br>
+			<form method="POST" action="">
+				{% csrf_token %}
+			<label class="fs-6 fw-bold mt-2 mb-2 ">Text</label> <br>
+			<textarea name="text" class="txt form-control border-2 shadow" rows="3" readonly>{{data}}</textarea>
+
+			<label class="fs-6 fw-bold mt-2 mb-2 ">After Correction</label> <br>
+			<textarea name="text" class="txt form-control border-2 shadow" rows="3" readonly>{{msg}}</textarea>
+			</form>-->
+		</div>
+
+	</div>
+
+	 <script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+
+	{% endblock %}
+</body>
+</html>

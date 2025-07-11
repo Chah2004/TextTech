@@ -1,0 +1,771 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css\aos.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<style type="text/css">
+		.button{
+			background-color: #584420;
+			color: #ECDCAC;
+			border-color: #584420 !important;
+			box-shadow: 2px 2px 3px #584420 !important;
+			padding-top: 10px;
+			padding-bottom: 10px; 
+			padding-left: 30px; 
+			padding-right: 30px; 
+		}
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: #ECDCAC !important;
+			color: #584420 !important;
+			border-color: #584420 !important;
+			box-shadow: 2px 2px 3px #584420 !important;
+		}
+		.button2{
+			background-color: #ECDCAC;
+			color: #584420;
+			border-color: #ECDCAC !important;
+			box-shadow: 2px 2px 3px #ECDCAC !important;
+			padding-top: 10px;
+			padding-bottom: 10px; 
+			padding-left: 30px; 
+			padding-right: 30px; 
+		}
+		.button2:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: white !important;
+			color: #584420 !important;
+			border-color: #ECDCAC !important;
+			box-shadow: 2px 2px 3px #ECDCAC !important;
+		}
+		.button:hover i{
+			color: #584420 !important;
+		}
+		.heading{
+			margin-top: 50px;
+			color: #584420 !important;
+			margin-right: 30px;
+			font-weight: bold;	
+		}
+		.text{
+			margin-top: 5px;
+			font-size: 28px;
+			color: #584420;
+			margin-right: 30px;
+		}
+		.card{
+			background-color:#584420;
+			border-color: #584420;
+			box-shadow: 2px 2px 2px #584420;
+			height: 500px;
+		}
+		.card-body{
+			background-color:#584420; 
+			color:white;
+			text-align: justify;
+		}
+		.card-img-top{
+			height: 200px;
+		}
+		.card-text{
+			color: #ECDCAC;
+		}
+		.card-button{
+			color: #584420;
+			background-color: #ECDCAC;
+		}
+		.card-button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: white;
+			color: #584420;
+		}
+		.feature{
+			height: 170px; 
+			background-color: #584420 !important; 
+			opacity: 0.7;
+			border-color: #584420 !important; 
+			box-shadow: 2px 2px 2px #584420 !important;
+			color: white !important;
+			text-align: justify;
+		}
+		.accordion-button{
+			color: #584420 !important;
+			border-color: #584420 !important;
+		}
+		.accordion-button:hover {
+    		background-color: white !important;
+    		color: #584420 !important;
+		}
+		.accordion-button:focus {
+    		background-color: transparent !important;
+    		outline: none; 
+    		border-bottom: none !important;
+		}
+		.accordion-button:not(.collapsed) {
+    		background-color: white !important;
+    		color: #584420 !important;
+		}
+		.accordion-button.collapsed {
+    		background-color: transparent !important;
+    		color: inherit !important;
+		}
+		.accordion-header{
+			color: #584420 !important;
+		}
+		.accordion-body{
+			color: #584420 !important;
+			border-color: #584420 !important
+		}
+
+		.item:hover{
+			animation: zoom-in-zoom-out 1s ease ;
+		}
+		@keyframes zoom-in-zoom-out {
+		  50% {
+		    transform: scale(1, 1);
+		  }
+		  30% {
+		    transform: scale(1.1, 1.1);
+		  }
+		  10% {
+		    transform: scale(1, 1);
+		  }
+		}
+		body{
+			overflow-x: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="row m-5">
+		<div class="col-md-6" data-aos="fade-right">
+			<img src="{%static 'images/image8.jpg' %}" width="100%" height="480px;" class="rounded-4">
+		</div>
+		<div class="col-md-6 ps-3" >
+			<div data-aos="fade-left">
+			<h3 class="heading">LANGUAGE PROCESSING TOOL</h3>
+			<p class="text"> Your Ultimate Text Transformation Hub!</p>
+			<p style="text-align: justify; color: #584420 !important;" >In a world where words wield immense power, having the right tools to manipulate and enhance text can make all the difference. Whether you're a seasoned writer, a student tackling assignments, or a business professional crafting compelling messages, our website is your one-stop destination for all things text-related. With our diverse range of tools, you can effortlessly transform, refine, and optimize your text in ways you never thought possible.</p>
+			</div>
+			<div data-aos="fade-up">
+			<a href="{% url 'dashboard' %}"><button class="button btn border border-2 shadow-lg fw-bold mt-3 mb-3" style="margin-right:30px;"><!--<i class="icofont-user me-2" style="color:#ECDCAC"></i>-->Join Us</button></a>
+			</div>
+		</div>
+	</div>
+	<div class="row pt-5 pb-5 mb-5" style="background-color: #584420; color: white; height: 250px;">
+		<div class="col-md-6 ps-5" data-aos="fade-right">
+			<h1 class="fw-bold" >My Services</h1>
+			<p class="fs-5" style="text-align: justify;">In the ever-evolving landscape of digital communication, a myriad of transformative features reshapes the way we interact with written content.</p>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+			<div class="col-md-7">
+				<img src="{%static 'images/service3.jpg' %}" width="110%" height="250px;">
+			</div>
+			<div class="col-md-5 mb-5">
+				<img src="{%static 'images/service16.webp' %}" width="160%" height="230px;" style="margin-top: 120px; margin-left: -180px;">
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row pb-5" style="color: #584420">
+		<div class="col-md-6"> <img src="{%static 'images/service1.png' %}" style="" width="100%" height="270px;"></div>
+		<div class="col-md-6 pe-5" style="padding-top: 120px" data-aos="fade-left">
+			<h1 >Text to Speech</h1>
+				<p style="text-align: justify;">Text-to-speech converts the written text into spoken words, enabling devices to audibly communicate textual content, facilitating accessibility and enhancing user interaction with digital content.</p>
+				<a href="{% url 'text_to_speech' %}"><button class="button btn border border-2 shadow-lg fw-bold mt-3 mb-3" style="margin-right:30px;">Try Now </button></a>
+		</div>
+	</div>
+
+
+	<div class="row pt-3 mb-5" style="background-color: #584420; color: white; height: 300px;">
+	 	<div class="col-md-6 ps-5"  data-aos="fade-right">
+	 		<h1 class="fw-bold" >Word Cloud</h1>
+				<p class="fs-5" style="text-align: justify;">A word cloud is a visual representation of text data where words are arranged in varying sizes based on their frequency of occurrence, providing a quick overview of the most prominent terms within the text.</p>
+				<a href="{% url 'word_cloud' %}"><button class="button2 btn border border-2 shadow-lg fw-bold mt-2 mb-3" style="margin-right:30px;">Try Now </button></a>
+	 	</div>
+	 	<div class="col-md-6 pt-5">
+	 		<img src="{%static 'images/service10.jpg' %}" width="100%" height="290px;" style="padding-right: 50px;">
+	 	</div>
+	</div>
+
+	<div class="row pb-5">
+		<div class="col-md-6">
+			<img src="{%static 'images/service8.webp' %}" style="padding-left: 30px;" width="100%" height="270px;">
+		</div>
+		<div class="col-md-6 pe-5" style="padding-top: 100px;" data-aos="fade-left">
+			<h1>Spelling Checker</h1>
+			<p style="text-align: justify;">A spelling checker automatically identifies and corrects spelling errors in written text to improve accuracy and readability.</p>
+			<a href="{% url 'spelling_checker' %}"><button class="button btn border border-2 shadow-lg fw-bold mt-3 mb-3" style="margin-right:30px;">Try Now </button></a>
+		</div>
+	</div>
+	<div class="row pt-3 pb-3 mb-5" style="background-color: #584420; color: white; height: 270px;">
+		<div class="col-md-6 ps-5" data-aos="fade-right">
+			<h1 class="fw-bold" >Language Converter</h1>
+				<p class="fs-5" style="text-align: justify;">A language converter translate text or speech from one language to another, facilitating communication and comprehension between speakers of different languages.</p>
+				<a href="{% url 'language_converter' %}"><button class="button2 btn border border-2 shadow-lg fw-bold mt-2 mb-3" style="margin-right:30px;">Try Now </button></a>
+		</div>
+		<div class="col-md-6 pt-5">
+			<img src="{%static 'images/service6.png' %}" width="100%" height="290px;" style="padding-right: 50px;">
+		</div>
+	</div>
+	<div class="row pb-5" style="color: #584420">
+		<div class="col-md-6">
+			<img src="{%static 'images/service13.png' %}" style="padding-left: 30px;" width="100%" height="270px;">
+		</div>
+		<div class="col-md-6 pe-5" style="padding-top: 80px;" data-aos="fade-left">
+			<h1>PDF to Text</h1>
+				<p style="text-align: justify;">PDF to text conversion extract the textual content from a PDF document, enabling it to be easily edited, searched, or analyzed in a plain text format.</p>
+				<a href="{% url 'pdf_to_text' %}"><button class="button btn border border-2 shadow-lg fw-bold mt-3 mb-3" style="margin-right:30px;">Try Now </button></a>
+		</div>
+	</div>
+	<div class="row pt-3 pb-3 mb-5" style="background-color: #584420; color: white; height: 270px;">
+		<div class="col-md-6 ps-5" data-aos="fade-right">
+			<h1 class="fw-bold" >Text to QR</h1>
+				<p class="fs-5" style="text-align: justify;">Text to QR conversion transform a given text into a Quick Response (QR) code, enabling easy digital sharing and retrieval of the original text using QR code scanning technology.</p>
+				<a href="{% url 'text_to_qr' %}"><button class="button2 btn border border-2 shadow-lg fw-bold mt-2 mb-3" style="margin-right:30px;">Try Now </button></a>
+		</div>
+		<div class="col-md-6 pt-5">
+			<img src="{%static 'images/service12.png' %}" width="100%" height="290px;" style="padding-right: 50px;">
+		</div>
+	</div>
+	<div class="row pb-5" tyle="color: #584420">
+		<div class="col-md-6">
+			<img src="{%static 'images/service5.jpeg' %}" style="padding-left: 30px;" width="100%" height="270px;">
+		</div>
+		<div class="col-md-6 pe-5" style="padding-top: 80px;" data-aos="fade-left">
+			<h1>Others</h1>
+			<p style="text-align: justify;">Some of the others services are speech to text, language detector, sentiment analysis, linguistic analysis, word transformation, pdf to audio, transform text, text analyser, text to pdf, text summarization.</p>
+			<a href="{% url 'dashboard' %}"><button class="button btn border border-2 shadow-lg fw-bold mt-3 mb-3" style="margin-right:30px;">Try Now </button></a>
+		</div>
+	</div>
+	<div class="row mb-5" style="background-image: url({% static 'images/image3.jpg' %}); height: 700px; position: relative;">
+    	<div class="col-md-12" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.5); color: #584420;">
+        	<h1 class="text-center mt-3">Why Choose Us?</h1>
+        	<div class="row p-3">
+  				<div class="col-md-4 item" data-aos="zoom-in">
+    				<div class="border border-2 shadow-lg feature p-2 rounded-4">
+      					
+        				<h5 class="fw-bold">Ease of Use:</h5>
+        						
+        				<p> Emphasize how user-friendly your website is. Highlight features such as a simple and intuitive interface that allows users to easily access and utilize the text tools without any hassle.</p>
+    				</div>
+  				</div>
+  				<div class="col-md-4 item" data-aos="zoom-in">
+    				<div class="border border-2 shadow-lg p-2 rounded-4" style="background-color: transparent; height: 170px; background-color: rgba(255, 255, 255, 0.3); border-color: #584420 !important; box-shadow: 2px 2px 2px #584420 !important; text-align: justify;">
+        				<h5 class="fw-bold">Wide Range of Tools:</h5>
+        				<p>Mention the variety of text tools available on your website, catering to different needs such as text formatting, conversion, analysis, and more. Highlight specific tools that are unique or particularly useful.</p>
+    				</div>
+  				</div>
+  				<div class="col-md-4 item" data-aos="zoom-in">
+    				<div class="border border-2 shadow-lg feature p-2 rounded-4">
+        				<h5 class="fw-bold">Free to Use:</h5>
+        				<p>If applicable, emphasize that your website provides these text tools for free. Users appreciate access to useful tools without having to pay for them.</p>
+    				</div>
+  				</div>
+			</div>
+			<div class="row p-3">
+  				<div class="col-md-4 item" data-aos="zoom-in">
+    				<div class="border border-2 shadow-lg feature p-2 rounded-4">
+        				<h5 class="fw-bold">No Installation Required:</h5>		
+        				<p>  Unlike downloadable software, your website offers the convenience of accessing text tools directly from a web browser. Users can access the tools anytime, anywhere, without the need for installation or updates.</p>
+    				</div>
+  				</div>
+  				<div class="col-md-4 item" data-aos="zoom-in">
+    				<div class="border border-2 shadow-lg p-2 rounded-4" style="background-color: transparent; height: 170px; background-color: rgba(255, 255, 255, 0.3); border-color: #584420 !important; box-shadow: 2px 2px 2px #584420 !important; text-align: justify;">
+        				<h5 class="fw-bold">Fast and Efficient:</h5>
+        				<p>Highlight the speed and efficiency of your text tools. Users can quickly perform tasks such as text conversion, editing, or analysis without any significant delays.</p>
+    				</div>
+  				</div>
+  				<div class="col-md-4 item" data-aos="zoom-in">
+    				<div class="border border-2 shadow-lg feature p-2 rounded-4">
+        				<h5 class="fw-bold">Reliable Results:</h5>
+        				<p>Ensure users that your text tools provide accurate and reliable results. Mention any quality assurance measures or algorithms used to ensure the accuracy of the tools.</p>
+    				</div>
+  				</div>
+			</div>
+			<div class="row p-3">
+  				<div class="col-md-4">
+  				</div>
+
+  				<div class="col-md-4 item" data-aos="zoom-in">
+    				<div class="border border-2 shadow-lg p-2 rounded-4" style="background-color: transparent; height: 170px; background-color: rgba(255, 255, 255, 0.3); border-color: #584420 !important; box-shadow: 2px 2px 2px #584420 !important; text-align: justify;">
+        				<h5 class="fw-bold">Testimonials and Reviews:</h5>
+        				<p>If you have positive testimonials or reviews from satisfied users, showcase them on your website. Social proof can help build trust and credibility among potential users.</p>
+    				</div>
+  				</div>
+  				<div class="col-md-4">
+  				</div>
+			</div>
+    	</div>
+	</div>
+	<div class="row mb-5 pt-3" style="background-image: linear-gradient(to top, white ,white 50%, #584420 , #584420 50%); margin-top: 100px;">
+	    <div class="col-md-12 ps-md-5 pe-md-5 ps-3 pe-3" style="color: white;">
+	        <h1 class="text-center pt-3"> Connect With Our Clients </h1>
+	        <p style="text-align: justify; text-align: center;">TextTech meets the needs of our clients while making their tasks easier and more efficient. This page is dedicated to sharing the experiences and feedback of our valued clients who have used our TextTech to enhance their work and productivity. </p>
+	    </div>
+	    <center><div class="row gx-3">
+	        {% for i in data %}
+	        <div class="col-lg-4 col-md-6 mb-3" data-aos="flip-left">
+	            <div class="p-3 mb-3" style="height: 200px; background-color: #B4A474; color: #584420; text-align: justify; border-color: #B4A474; box-shadow: 0px 0px 10px #B4A474;">
+	                <h5 class="fw-bold">{{i.title}}</h5>
+	                <p>{{i.message}}</p>
+	            </div>
+	        </div>
+	        {% endfor %}
+	    </div></center>
+	</div>
+	<script src='{%static "js\aos.js" %}'></script>
+		<script>
+		  AOS.init()
+		</script>
+	{% endblock %}
+</body>
+</html>
+
+<!--<div class="row mb-5 pt-3" style="background-image: linear-gradient(to top, white ,white 50%, #584420 , #584420 50%); margin-top: 100px;">
+		<div  class="col-md-12 ps-5 pe-5" style="color: white;">
+			<h1 class="text-center pt-3"> Connect With Our Clients </h1>
+			<p style="stext-align: justify; text-align: center;">TextTech meets the needs of our clients while making their tasks easier and more efficient. This page is dedicated to sharing the experiences and feedback of our valued clients who have used our TextTech to enhance their work and productivity. </p>
+		</div>
+		
+		<div class="row pe-4 ps-4 pb-2 pt-3">
+			{% for i in data %}
+				
+					<div class="col-md-4" data-aos="flip-left">
+
+						<center>
+						<div class="p-3 mb-3" style=" height: 200px; width: 23rem; background-color: #B4A474 ; color: #584420; text-align: justify; border-color: #B4A474; box-shadow: 0px 0px 10px #B4A474 ">
+					    <h5 class="fw-bold">{{i.title}}</h5>
+					    <p>{{i.message}}</p>
+					    </div>
+					    </center>
+					</div>
+				
+			{% endfor %}
+		</div>
+
+	</div>  -->
+
+<!--
+	<div class="row m-5" style=" padding-top: 60px; padding-bottom: 60px; color: #584420;">
+		<div class="col-md-12 text-center">
+			<h1 class="fw-bold">My Services</h1>
+			<p class="fs-5">In the ever-evolving landscape of digital communication, a myriad of transformative <br>features reshapes the way we interact with written content.</p>
+		</div>
+
+
+		<div class="row pt-4 pe-1 ps-1 pb-4">
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service1.png' %}" class="card-img-top" alt="..." style="height: 200px;">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Text to Speech</h5>
+						<p class="card-text">Text-to-speech converts the written text into spoken words, enabling devices to audibly communicate textual content, facilitating accessibility and enhancing user interaction with digital content.</p>
+						<a href="{% url 'text_to_speech' %}" class="btn card-button">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service2.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Speech to Text</h5>
+						<p class="card-text">Speech-to-text converts the spoken words into written text, allowing for automatic transcription of verbal communication into text format.</p>
+						<a href="{% url 'speech_to_text' %}" class="btn card-button" style="margin-top: 50px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service3.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Word Cloud</h5>
+						<p class="card-text">A word cloud is a visual representation of text data where words are arranged in varying sizes based on their frequency of occurrence, providing a quick overview of the most prominent terms within the text.</p>
+						<a href="{% url 'word_cloud' %}" class="btn card-button">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service4.png' %}" class="card-img-top" alt="..." style="background-color: white;">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Sentiment Analysis</h5>
+						<p class="card-text">Determines the emotional tone or sentiment expressed in a piece of text, often categorized as positive, negative, or neutral.</p>
+						<a href="{% url 'sentiment_analysis' %}" class="btn card-button" style="margin-top: 68px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+		</div>
+
+
+		<div class="row pt-4 pe-1 ps-1 pb-4">
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service5.jpeg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Language Detector</h5>
+						<p class="card-text">A language detector analyse text to determine the language in which it is written, enabling automated language recognition for multilingual content processing and categorization.</p>
+						<a href="{% url 'language_detection' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service6.png' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Language Converter</h5>
+						<p class="card-text">A language converter translate text or speech from one language to another, facilitating communication and comprehension between speakers of different languages.</p>
+						<a href="{% url 'language_converter' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service7.png' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Text Summarization</h5>
+						<p class="card-text">Text summarization is the process of condensing a piece of text to its essential information, providing a concise overview of the main points or themes contained within the original content.</p>
+						<a href="{% url 'text_summarization' %}" class="btn card-button">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service8.webp' %}" class="card-img-top" alt="..." style="background-color: white;">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Spelling Checker</h5>
+						<p class="card-text">A spelling checker automatically identifies and corrects spelling errors in written text to improve accuracy and readability.</p>
+						<a href="{% url 'spelling_checker' %}" class="btn card-button" style="margin-top: 70px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+		</div>
+
+
+		<div class="row pt-4 pe-1 ps-1 pb-4">
+			
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service9.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Convert Text to PDF</h5>
+						<p class="card-text">Text to PDF transform a plain text document into a PDF file, allowing for easy sharing, viewing, and printing while preserving the formatting and layout of the original text.</p>
+						<a href="{% url 'text_to_pdf' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service10.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Linguistic Analysis</h5>
+						<p class="card-text">Linguistic analysis examine language to identify and categorize elements such as nouns, verbs, adverbs, adjectives, and more, to understand the structure and meaning of a text.</p>
+						<a href="{% url 'linguistic_analysis' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service11.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Word Transformation</h5>
+						<p class="card-text">Word transformation help us to replace specific word in your text, enhancing coherence and ensuring your message resonates with your audience exactly as you intend</p>
+						<a href="{% url 'word_transformation' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service12.png' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Text to QR</h5>
+						<p class="card-text">Text to QR conversion transform a given text into a Quick Response (QR) code, enabling easy digital sharing and retrieval of the original text using QR code scanning technology.</p>
+						<a href="{% url 'text_to_qr' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+		</div>
+
+
+		<div class="row pt-4 pe-1 ps-1">
+			
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service13.png' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">PDF to Text</h5>
+						<p class="card-text">PDF to text conversion extract the textual content from a PDF document, enabling it to be easily edited, searched, or analyzed in a plain text format.</p>
+						<a href="{% url 'pdf_to_text' %}" class="btn card-button" style="margin-top: 45px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service14.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">PDF to Audio</h5>
+						<p class="card-text">PDF to audio conversion transform the text content from a PDF document into spoken audio format, facilitating those preferring auditory learning methods.</p>
+						<a href="{% url 'pdf_to_audio' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service15.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Transform Text</h5>
+						<p class="card-text">Text transformation convert the text into different cases such as upper case, lower case, sentence case, toggle case, or capitalize case, altering the appearance of the text while preserving its content and structure.</p>
+						<a href="{% url 'transform_text' %}" class="btn card-button">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+
+			<div class="col-md-3">
+				<center>
+					<div class="card" style="width: 17rem;">
+					<img src="{%static 'images/service16.webp' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title fw-bold">Text Analyser</h5>
+						<p class="card-text">A text analyzer is used to quantitatively assess textual content, providing counts for parameters such as paragraphs, words, characters, spaces, digits, and other linguistic elements.</p>
+						<a href="{% url 'count' %}" class="btn card-button" style="margin-top: 20px;">Try Now</a>
+					</div>
+					</div>
+				</center>
+			</div>
+		</div>
+
+	</div>-->
+
+
+
+<!--
+	<div class="row pt-3 mb-5 " style="background-color: #584420; color: white; margin-top: 100px;">
+		<div class="col-md-12">
+			<h1 class="text-center mb-5 pb-3 border-bottom" style="border-color: white !important">Frequently Asked Questions(FAQs)</h1>
+		</div>
+
+		<div class="row ps-5 pe-5 pb-5">
+			<div class="col-md-7 border border-2 shadow-lg rounded-4" style="background-color: white; border-color: white !important; box-shadow: 2px 2px 3px white !important;">
+				<div class="accordion accordion-flush" id="accordionFlushExample">
+  					<div class="accordion-item">
+    					<h2 class="accordion-header">
+     	 				<button class="accordion-button collapsed fw-bold border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="box-shadow: none !important;">
+        				What is TextTool and how does it work?
+      					</button>
+    					</h2>
+    					<div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      						<div class="accordion-body border-bottom">This question introduces TextTool as a platform designed to assist users with various text processing tasks and explains its functionality.</div>
+    					</div>
+  					</div>
+  					<div class="accordion-item">
+    					<h2 class="accordion-header">
+      					<button class="accordion-button collapsed fw-bold border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" style="box-shadow: none !important;">
+        				What features does TextTool offer?
+      					</button>
+    					</h2>
+    					<div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      						<div class="accordion-body border-bottom">This question lists the key features of TextTool, such as text summarization, sentiment analysis, keyword extraction, language translation, and more.</div>
+    					</div>
+  					</div>
+  					<div class="accordion-item">
+    					<h2 class="accordion-header">
+      					<button class="accordion-button collapsed fw-bold border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" style="box-shadow: none !important;">
+        				Is TextT suitable for non-technical users?
+      					</button>
+    					</h2>
+    					<div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      						<div class="accordion-body border-bottom">TextTool is user-friendly and accessible to individuals without a technical background, or it does not require programming skills to use effectively.</div>
+    					</div>
+  					</div>
+  					<div class="accordion-item">
+    					<h2 class="accordion-header">
+      					<button class="accordion-button collapsed fw-bold border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefourth" aria-expanded="false" aria-controls="flush-collapseThree" style="box-shadow: none !important;">
+        				What is sentiment analysis? 
+      					</button>
+    					</h2>
+    					<div id="flush-collapsefourth" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      						<div class="accordion-body border-bottom">Sentiment Analysis determines the emotional tone or sentiment expressed in a piece of text, often categorized as positive, negative, or neutral.</div>
+    					</div>
+  					</div>
+  					<div class="accordion-item">
+    					<h2 class="accordion-header">
+      					<button class="accordion-button collapsed fw-bold border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefiveth" aria-expanded="false" aria-controls="flush-collapseThree" style="box-shadow: none !important;">
+        				What is text summarization?
+      					</button>
+    					</h2>
+    					<div id="flush-collapsefiveth" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      						<div class="accordion-body border-bottom">Text summarization is a process of condensing large volumes of text into shorter, coherent summaries while preserving key information and meaning.</div>
+    					</div>
+  					</div>
+  					<div class="accordion-item">
+    					<h2 class="accordion-header">
+      					<button class="accordion-button collapsed fw-bold border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesixth" aria-expanded="false" aria-controls="flush-collapseThree" style="box-shadow: none !important;">
+        				What is a word cloud?
+      					</button>
+    					</h2>
+    					<div id="flush-collapsesixth" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      						<div class="accordion-body border-bottom">Word cloud is a visual representations of text data, where words are sized proportionally to their frequency in the input text.</div>
+    					</div>
+  					</div>
+  					<div class="accordion-item">
+    					<h2 class="accordion-header">
+      					<button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseventh" aria-expanded="false" aria-controls="flush-collapseThree" style="box-shadow: none !important;">
+        				What is linguistic analysis?
+      					</button>
+    					</h2>
+    					<div id="flush-collapseseventh" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      						<div class="accordion-body">Linguistic analysis as the study and analysis of language structure, grammar, semantics, and syntax to extract meaningful insights from text data.</div>
+    					</div>
+  					</div>
+				</div>
+			</div>
+			<div class="col-md-5 ps-3">
+				<img src="{%static 'images/faqs.jpg' %}" width="107%" style="margin-top: 23px; border-radius: 40px;">
+			</div>
+		</div>
+	</div>
+-->
+
+	
+
+
+
+<!--
+	<div class="row">
+		{% for i in data %}
+		<div class="col-md-12">	
+			<h1>{{i.title}}</h1>
+			{{i.message}}
+		</div> 
+		{% endfor%}
+	</div>
+
+
+
+
+	<div class="row m-5">
+		<div class="col-md-6">
+			<div>
+			<img src="{%static 'images/image2.jpg' %}" height="400px;" width="100%">
+			</div>
+		</div>
+		<div class="col-md-6" style="color: #584420; ">
+			<h1>I'm Alex</h1>
+
+			<p style="text-align: justify;">Aliquam et odio arcu. Vestibulum pharetra tincidunt odio, sed pulvinar magna tempus quis. Mauris risus odio, semper sit amet tortor a, tristique consectetur urna. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+			<button class="button btn border border-2 shadow-lg fw-bold mt-3 mb-3">Login </button>
+		</div>
+	</div>
+
+
+
+	<div class="row p-5" style="background-color: #584420; color: white;">
+		<div col-md-12>
+			<h1> Connect With Our Clients </h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+		</div>
+
+		<div id="carouselExample" class="carousel slide">
+  			<div class="carousel-inner">
+    			{% for i in data %}
+            	{% if forloop.counter0|divisibleby:2 %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                    <div class="row" style="padding-left: 120px; padding-right: 120px; padding-top: 30px; padding-bottom: 30px;">
+                		{% endif %}
+                    	<div class="col-md-6 border border-2 rounded-4 me-4 ms-4 p-5" style="width: 45%">
+                        	<h1>{{ i.title }}</h1>
+                        	{{ i.message }}
+                    	</div>
+
+                    	<div class="col-md-6 border border-2 rounded-4 me-2 ms-4 p-5" style="width: 45%">
+                        	<h1>{{ i.title }}</h1>
+                        	{{ i.message }}
+                    	</div>
+                		{% if forloop.last or forloop.counter0|add:1 == data|length %}
+                    </div>
+            	</div>
+                {% endif %}
+            	{% else %}
+                {% if forloop.counter0|add:1 == data|length %}
+                    <div class="carousel-item">
+                        <div class="row">
+                			{% endif %}
+                    		<div class="col-md-6">
+                        		<h1>{{ i.title }}</h1>
+                        		{{ i.message }}
+                    		</div>
+
+                    		<div class="col-md-6">
+                        		<h1>{{ i.title }}</h1>
+                        		{{ i.message }}
+                    		</div>
+                			{% if forloop.last %}
+                        </div>
+                    </div>
+                {% endif %}
+            	{% endif %}
+        		{% endfor %}
+  			</div>
+  			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    			<span class="visually-hidden">Previous</span>
+  			</button>
+  			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    			<span class="visually-hidden">Next</span>
+  			</button>
+		</div>	
+	</div>
+
+
+-->

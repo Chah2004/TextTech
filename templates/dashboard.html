@@ -1,0 +1,131 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\aos.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		p{
+			text-align: justify;
+		}
+		.card{
+			height: 260px;
+			padding-top: 20px;
+			border-color: #584420;
+			box-shadow: 0px 0px 5px #584420;
+
+		}
+		.item:hover{
+			animation: zoom-in-zoom-out 1s ease ;
+		}
+
+		@keyframes zoom-in-zoom-out {
+		  50% {
+		    transform: scale(1, 1);
+		  }
+		  30% {
+		    transform: scale(1.1, 1.1);
+		  }
+		  10% {
+		    transform: scale(1, 1);
+		  }
+		}
+
+		body{
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="row p-3" style="color: #584420;">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<div class="row mb-3 rounded-4 pt-2 pb-2" style="background-color:#584420; color: white;">
+				<div class="col-md-12">
+					<center><h1  data-aos="zoom-in">Welcome to Dashboard</h1></center>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" data-aos="fade-right">
+					<div class="card mb-3 item" style="width: 18rem;color: #584420;">
+					  <center><i class="icofont-underline icofont-4x"></i></center>
+					  <div class="card-body">
+					    <p class="card-text">"Empower your text with versatility! Explore a plethora of features including text-to-speech, speech-to-text, sentiment analysis, linguistic analysis and more."</p>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-4" data-aos="zoom-in">
+					<div class="col-md-4">
+					<div class="card mb-3 item" style="width: 18rem; color: #584420;">
+					  <center><i class="icofont-file-word icofont-4x"></i></center>
+					  <div class="card-body">
+					    <p class="card-text">"Transform words into action! Utilize our comprehensive suite of tools for tasks like creating word clouds, word transformation word analysis effortlessly."</p>
+					  </div>
+					</div>
+				</div>
+				</div>
+				<div class="col-md-4" data-aos="fade-left">
+					<div class="card mb-3 item" style="width: 18rem; color: #584420;">
+					  <center><i class="icofont-qr-code icofont-4x"></i></center>
+					  <div class="card-body">
+					    <p class="card-text">"Efficiency at your fingertips! From spell checks to QR code generation, streamline your text-related tasks with our intuitive dashboard."</p>
+					  </div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-4" data-aos="fade-right">
+					<div class="card mb-3 item" style="width: 18rem;color: #584420;">
+					  <center><i class="icofont-file-pdf icofont-4x"></i></center>
+					  <div class="card-body">
+					    <p class="card-text">"Discover the power of words! Unleash creativity with features like PDF to audio, PDF to text, and text to PDF, all in one place."</p>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-4" data-aos="zoom-in">
+					<div class="col-md-4">
+					<div class="card mb-3 item" style="width: 18rem; color: #584420;">
+					  <center><i class="icofont-globe-alt icofont-4x"></i></center>
+					  <div class="card-body">
+					    <p class="card-text">"Harness the power of language! From detecting languages to converting text, explore the possibilities with our comprehensive text tool."</p>
+					  </div>
+					</div>
+				</div>
+				</div>
+				<div class="col-md-4" data-aos="fade-left">
+					<div class="card mb-3 item" style="width: 18rem; color: #584420;">
+					  <center><i class="icofont-simple-smile icofont-4x"></i></center>
+					  <div class="card-body">
+					    <p class="card-text">"Innovate with words! From sentiment analysis to linguistic insights, embark on a journey of text exploration and discovery."</p>
+					  </div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<script src='{%static "js\aos.js" %}'></script>
+		<script>
+		  AOS.init()
+		</script>
+
+	{% endblock %}
+
+</body>
+</html>

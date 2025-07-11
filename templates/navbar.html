@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<style type="text/css">
+		.link:hover{
+			color: #B49C6C !important;
+		}
+		.link {
+   			position: relative;
+    		text-decoration: none;
+		}
+
+		.link:after {
+    		content: '';
+		    position: absolute;
+		    width: 0;
+		    height: 2px;
+		    bottom: 0;
+		    left: 0;
+		    background-color: #B49C6C;
+		    transition: width 0.3s ease-in-out;
+		}
+
+		.link:hover:after {
+    		width: 100%;
+		}
+	
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg pt-3 pb-3" style="background-color:  #584420;">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light fs-3" href="#" ><span style="color: #B49C6C">Text</span>Tech</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link me-4 link" aria-current="page" href="#" style="color: #ECDCAC">Home</a>
+        <a class="nav-link me-4 link" href="#" style="color: #ECDCAC">Features</a>
+        <a class="nav-link me-4 link" href="#" style="color: #ECDCAC">Pricing</a>
+        <a class="nav-link me-4 link" href="#"style="color: #ECDCAC" style="color: #ECDCAC">About Us</a>
+        <a class="nav-link me-4 link" href="#" style="color: #ECDCAC">Pricing</a>
+        <a class="nav-link me-4 link" href="#" style="color: #ECDCAC">Contact Us</a>
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>

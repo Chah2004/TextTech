@@ -1,0 +1,363 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title></title>
+	
+    <link rel="stylesheet" type="text/css" href="{%static 'css\aos.css' %}">
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+body {
+    background-color: #eee
+}
+
+.btn1 {
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    height: 37px;
+    width: 37px;
+    text-align: center;
+    background: #333;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease
+}
+
+.btn1.click {
+    left: 260px
+}
+
+.btn1 span {
+    color: white;
+    font-size: 15px;
+    line-height: 36px
+}
+
+.btn1.click span:before {
+    content: '\f00d'
+}
+
+.sidebar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    left: -250px;
+    background: #584420;
+    transition: left 0.4s ease
+}
+
+.sidebar.show {
+    left: 0px
+}
+
+
+
+
+.sidebar .text {
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #584420;
+    letter-spacing: 1px
+}
+
+nav ul {
+    background: #584420;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding-left: 10px
+}
+
+nav ul li {
+    line-height: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05)
+}
+
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 14px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent
+}
+
+nav ul li.active a {
+    color: #584420;
+    background: #B49C6C;
+    border-left-color: white;
+}
+
+nav ul li a:hover {
+    background: #B49C6C;
+}
+
+.feat-show {
+    transition: all 0.5s;
+}
+
+nav ul li.active ul {
+    transition: all 0.5s;
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+     
+}
+
+
+nav ul.show {
+    display: block;
+    transition: all 0.5s;
+
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-top: none;
+}
+
+
+nav ul ul li a {
+    font-size: 12px;
+    color: #584420;
+    background: #ECDCAC;
+    border-left-color: transparent;
+
+
+}
+
+nav ul li.active ul li a {
+    color: #584420;
+    background: #ECDCAC;
+    border-left-color: transparent;
+
+}
+
+
+a:hover {
+    color: #584420 !important;
+}
+
+nav ul ul li a:hover {
+    
+    }
+.link {
+    position: relative;
+    text-decoration: none;
+}
+
+.link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #B49C6C;
+    transition: width 0.3s ease-in-out;
+}
+
+.link:hover:after {
+    width: 100%;
+}
+
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg)
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #202020;
+    z-index: -1;
+    text-align: center
+}
+
+nav ul ul li.active a {
+    border-bottom: 2px solid #B49C6C;
+}
+
+nav ul ul li:last-child.active a:after {
+    width: 100%; /* Set the width to match the hover state */
+    bottom: 15px; /* Align the line near the bottom of the last child */
+}
+
+nav ul ul li.active a:hover {
+    /* Apply the same styles as normal state to override hover effect */
+    background-color: #ECDCAC;
+    color: #584420;
+    border-bottom: 2px solid #B49C6C;
+}
+
+nav ul ul li.active a:hover:after {
+    /* Disable the hover line */
+    width: 0;
+}
+nav ul ul li:last-child a{
+    padding-bottom: 20px; /* Adjust the margin-bottom to give space at the end of the dropdown */
+}
+
+nav ul ul li:last-child a {
+    position: relative;
+    text-decoration: none; /* Ensure relative positioning for pseudo-element */
+}
+
+nav ul ul li:last-child a:after {
+    content: ''; /* Add a pseudo-element */
+    position: absolute; /* Position the pseudo-element absolutely */
+    bottom: 15px; /* Adjust to align the line near the bottom of the last child */
+    left: 0; /* Align the line with the left edge of the last child */
+    width: 0%; /* Make the line span the width of the last child */
+    height: 2px; /* Set the height of the line */
+    background-color: #B49C6C; /* Set the color of the line */
+    transition: width 0.3s ease-in-out; /* Add transition effect */
+}
+
+nav ul ul li:last-child a:hover:after {
+    width: 100%; /* Adjust the width of the line on hover */
+}
+
+</style>
+</head>
+<body>
+	
+<nav
+ class="sidebar show" style="overflow: scroll;">
+    <div class="text" style="background-color: #584420  !important;">
+        <a href="{% url 'index' %}" style="text-decoration: none;">
+            <img src='{%static "images/logo5.jpg" %}' height="60px" width="100px" class="mb-3" style="margin-top: 20px !important;">
+        </a>
+    </div>
+    <!--<div class="text"><span style=" color:#B49C6C">Text</span>Tech</div>-->
+    <ul class="main_side">
+        <li class="{% if request.path == '/dashboard' %}active{% endif %}"><a href="{% url 'dashboard' %}"><i class="icofont-dashboard-web me-2" style="color:white;"></i>Dashboard</a></li>
+
+        <li class="{% if request.path == '/index' %}active{% endif %}"><a href="{% url 'index' %}"><i class="icofont-home me-2" style="color:white;"></i>Home</a></li>
+        
+        <li class="{% if request.path == '/userprofil' or request.path == '/editprofile' or request.path == '/changepw' %}active{% endif %}"> 
+            <a href="#" id="1"><i class="icofont-business-man me-2" style="color:white;"></i>My Account <span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-1 {% if request.path == '/userprofil' or request.path == '/editprofile' or request.path == '/changepw' %} show {% endif %}">
+                <li {% if request.path == '/userprofil' %} class="active" {% endif %}><a href="{% url 'userprofil' %}" class="link">MY Profile</a></li>
+                <li {% if request.path == '/editprofile' %} class="active" {% endif %}><a href="{% url 'editprofile' %}" class="link">Edit Profile</a></li>
+                <li {% if request.path == '/changepw' %} class="active" {% endif %}><a href="{% url 'changepw' %}" class="link">Change Password</a></li>
+            </ul>
+        </li>
+
+        <li class="{% if request.path == '/text_to_speech' or request.path == '/speech_to_text' or request.path == '/tts_output2' %}active{% endif %}"> 
+            <a href="#" id="2"><i class="icofont-audio me-2" style="color:white;"></i>Speech<span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-2 {% if request.path == '/text_to_speech' or request.path == '/speech_to_text' or request.path == '/tts_output2' %} show {% endif %}">
+                <li {% if request.path == '/text_to_speech' or request.path == '/tts_output2' %} class="active" {% endif %}><a href="{% url 'text_to_speech' %}" class="link">Text-to-Speech</a></li>
+                <li {% if request.path == '/speech_to_text' %} class="active" {% endif %}><a href="{% url 'speech_to_text' %}" class="link">Speech-to-Text</a></li>
+            </ul>
+        </li>
+        <li class="{% if request.path == '/text_summarization' or request.path == '/spelling_checker' or request.path == '/text_to_pdf' or request.path == '/count' or request.path == '/transform_text' or request.path == '/text_to_qr' %}active{% endif %}"> 
+            <a href="#" id="3"><i class="icofont-underline me-2" style="color:white;"></i>Text<span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-3 {% if request.path == '/text_summarization' or request.path == '/spelling_checker' or request.path == '/text_to_pdf' or request.path == '/count' or request.path == '/transform_text' or request.path == '/text_to_qr' %}show{% endif %}">
+                <li {% if request.path == '/text_summarization' %} class="active" {% endif %}><a href="{% url 'text_summarization' %}" class="link">Text Summarization</a></li>
+                <li {% if request.path == '/spelling_checker' %} class="active" {% endif %}><a href="{% url 'spelling_checker' %}" class="link">Spelling Checker</a></li>
+                <li {% if request.path == '/text_to_pdf' %} class="active" {% endif %}><a href="{% url 'text_to_pdf' %}" class="link">Text-to-PDF</a></li>
+                <li {% if request.path == '/count' %} class="active" {% endif %}><a href="{% url 'count' %}" class="link">Text Analyser</a></li>
+                <li {% if request.path == '/transform_text' %} class="active" {% endif %}><a href="{% url 'transform_text' %}" class="link">Transform Text</a></li>
+                <li {% if request.path == '/text_to_qr' %} class="active" {% endif %}><a href="{% url 'text_to_qr' %}" class="link">Text-to-QR</a></li>
+            </ul>
+        </li>
+        <li class="{% if request.path == '/language_converter' or request.path == '/language_detection' %}active{% endif %}"> 
+            <a href="#" id="4"><i class="fa fa-language fa-lg me-2" style="color: white;"></i>Language<span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-4 {% if request.path == '/language_converter' or request.path == '/language_detection' %}show{% endif %}">
+                <li {% if request.path == '/language_converter' %} class="active" {% endif %}><a href="{% url 'language_converter' %}" class="link">Language Converter</a></li>
+                <li {% if request.path == '/language_detection' %} class="active" {% endif %}><a href="{% url 'language_detection' %}" class="link">Language Detection</a></li>
+            </ul>
+        </li>
+        <li class="{% if request.path == '/pdf_to_text' or request.path == '/pdf_to_audio' or request.path == '/pta_output' or request.path == '/ptt_output' %}active{% endif %}"> 
+            <a href="#" id="5"><i class="icofont-file-pdf me-2" style="color:white;"></i>PDF<span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-5 {% if request.path == '/pdf_to_text' or request.path == '/pdf_to_audio' or request.path == '/pta_output' or request.path == '/ptt_output' %}show{% endif %}">
+                <li {% if request.path == '/pdf_to_text' or request.path == '/ptt_output' %} class="active" {% endif %}><a href="{% url 'pdf_to_text' %}" class="link">PDF-to-Text</a></li>
+                <li {% if request.path == '/pdf_to_audio' or request.path == '/pta_output' %} class="active" {% endif %}><a href="{% url 'pdf_to_audio' %}" class="link">PDF-to-Audio</a></li>
+            </ul>
+        </li>
+        <li class="{% if request.path == '/word_cloud' %}active{% endif %}"><a href="{% url 'word_cloud' %}"><i class="icofont-cloudapp me-2" style="color:white;"></i>Word Cloud</a></li>
+        <li class="{% if request.path == '/word_transformation' %}active{% endif %}"><a href="{% url 'word_transformation' %}"><i class="icofont-file-word me-2" style="color:white;"></i>Word Transformation</a></li>
+        <li class="{% if request.path == '/linguistic_analysis' %}active{% endif %}"><a href="{% url 'linguistic_analysis' %}"><i class="fa fa-book fa-lg me-2" style="color: white;"></i>Linguistic Analysis</a></li>
+        <li class="{% if request.path == '/sentiment_analysis' %}active{% endif %}"><a href="{% url 'sentiment_analysis' %}"><i class="icofont-simple-smile me-2" style="color:white;"></i>Sentiment Analysis</a></li>
+
+        <li class="{% if request.path == '/review' %}active{% endif %}"><a href="{% url 'review' %}"><i class="icofont-ui-rating me-2" style="color:white;"></i>Review</a></li>
+        <li class="{% if request.path == '/help' %}active{% endif %}"><a href="{% url 'help' %}"><i class="icofont-live-support me-2" style="color:white;"></i>Help & Support</a></li>
+        <li class="{% if request.path == '/logout' %}active{% endif %}"><a href="{% url 'logout' %}"><i class="icofont-logout me-2" style="color:white;"></i>Log Out</a></li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('.btn1').click(function(){
+$(this).toggleClass("click");
+$('.sidebar').toggleClass("show");
+});
+
+
+$('.sidebar ul li a').click(function(){
+var id = $(this).attr('id');
+$('nav ul li ul.item-show-'+id).toggleClass("show");
+$('nav ul li #'+id+' span').toggleClass("rotate");
+
+ // Close other dropdowns
+$('nav ul li ul').not('nav ul li ul.item-show-' + id).removeClass("show");
+$('nav ul li a').not('nav ul li #' + id).find('span').removeClass("rotate");
+
+});
+
+$('nav ul li').click(function(){
+$(this).addClass("active").siblings().removeClass("active");
+});
+</script>
+
+
+
+
+</body>
+</html>

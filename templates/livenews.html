@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\aos.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<style type="text/css">
+		.animated-text{
+			position: relative;
+			-webkit-box-reflect:below -10px linear-gradient(transparent, rgba(0,0,0,.2));
+			font-size: 60px;
+		}
+		.animated-text span{
+			font-family: 'Alfa Slab One', cursive;
+			position: relative;
+			display: inline-block;
+			color: #584420 ;
+			text-transform: uppercase;
+			animation: animated-text 1s infinite;
+			animation-delay: calc(.1s * var(--i));
+
+		}
+
+		@keyframes animated-text{
+			0%, 40%, 100%{
+				transform: translateY(0);
+			}
+			20%{
+				transform: translateY(-20px);
+			}
+		}
+		.button{
+			background-color: #584420;
+			color: #ECDCAC;
+			border-color: #584420 !important;
+			box-shadow: 2px 2px 3px #584420 !important;
+			padding-top: 10px;
+			padding-bottom: 10px; 
+			padding-left: 30px; 
+			padding-right: 30px; 
+
+		}
+
+
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: #ECDCAC !important;
+			color: #584420 !important;
+			border-color: #584420 !important;
+			box-shadow: 2px 2px 3px #584420 !important;
+		}
+		
+	
+		}
+		.card{
+			background-color:#584420;
+			/*border-color: #584420 !important;*/
+			/*box-shadow: 0px 0px 5px #584420 !important;*/
+			height: 370px;
+		}
+		.card-body{
+			background-color:#584420; 
+			color:white;
+		}
+		.card-img-top{
+			height: 200px;
+		}
+		.card-text{
+			color: #ECDCAC;
+		}
+		.item:hover{
+			animation: zoom-in-zoom-out 1s ease ;
+		}
+
+		@keyframes zoom-in-zoom-out {
+		  50% {
+		    transform: scale(1, 1);
+		  }
+		  30% {
+		    transform: scale(1.1, 1.1);
+		  }
+		  10% {
+		    transform: scale(1, 1);
+		  }
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="row" style="background-color: white;">
+		<div class="row">
+		<div class="col-md-4" style="padding-left: 50px;">
+			<img src="{%static 'images/image16.png' %}" class="pb-3" height="250px;" width="300px">
+		</div>
+		<div class="col-md-8 pt-3 " >
+			<h1 class="animated-text" style="font-family: 'poppins',sans-serif; font-weight: bold; font-size: 80px; "><strong>
+				<span style="--i:1">L</span>
+				<span style="--i:2">I</span>
+				<span style="--i:3">V</span>
+				<span style="--i:4" class="me-4">E</span>
+				<span style="--i:5">N</span>
+				<span style="--i:6">E</span>
+				<span style="--i:7">W</span>
+				<span style="--i:8">S</span>
+			</strong></h1>
+		
+		</div>	
+		</div>
+
+
+		<center>
+		    <div class="row p-2">
+
+			{% for i in k %}
+			{% if i.urlToImage %}
+			<div class="col-md-4">
+				<center>
+					
+					<div class="card mb-3 mt-3 border border-2 shadow-lg item" style="width: 18rem; box-shadow: 2px 2px 3px #584420 !important; border-color: #584420 !important;" data-aos="flip-left" >
+						
+				  		<img src="{{i.urlToImage}}" class="card-img-top" alt="..." height="200px">
+				  		<div class="card-body" style="text-align: justify;">
+
+					    	<h5 class="card-title text-light">{{i.title|truncatechars:18}}</h5>
+					    	<p class="card-text">{{i.content|truncatechars:78}}</p>
+					    	<a href="{{i.url}}" class="button btn" style="background-color: #ECDCAC; color: #584420; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; border-color: #ECDCAC !important; box-shadow: 2px 2px 2px #ECDCAC !important;">Read more</a>
+				  		</div>
+					</div>
+
+				</center>
+			</div>
+			{% endif %}
+			{% endfor %}
+			</div>
+		</center>
+
+
+	<script src='{%static "js\aos.js" %}'></script>
+		<script>
+		  AOS.init()
+		</script>
+
+	{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		::placeholder{
+			color:white !important;
+		}
+		h1{
+			color: #584420;
+		}
+		p{
+			text-align: justify;
+			color: #584420;
+		}
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+		.button{
+			background-color: #ECDCAC;
+			color: #584420; 
+			padding-top: 10px; 
+			padding-bottom: 10px; 
+			padding-left: 20px; 
+			padding-right: 20px; 
+			border-color: #584420 !important; 
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+
+		
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: #584420 !important;
+			box-shadow:2px  2px 2px #584420 !important;
+			color: #ECDCAC !important;
+		}
+
+		body{
+        overflow-x: hidden;
+      }
+		
+	</style>
+</head>
+<body>
+	<div class="row ps-5 pe-5 pt-3  ">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<center><h1 class="text-center border-bottom border-2  pb-2" style="border-color:#584420 !important; "><span style="color: #B49C6C">PDF-To</span>-Audio</h1>
+			<p class="mb-3" data-aos="zoom-in">Welcome to our PDF-to-Audio conversion page, where words come to life! In today's fast-paced world, accessibility and convenience are paramount. Whether you're a student, a professional, or someone who simply prefers to consume content on the go, our PDF-to-Audio conversion tool offers a seamless solution to transform written text into spoken words.</p></center>
+			<div class="row">
+				<div class="col-md-8" data-aos="fade-right">
+					<iframe src="{%static 'uploaded_pdf.pdf' %}" width="100%" height="440px"></iframe>
+				</div>
+				<div class="col-md-4 mt-5" data-aos="fade-left">
+					<p><b>Name of the File :</b> {{pdf_file}} &nbsp; &nbsp; &nbsp;
+					<b>Total nuber of Pages :</b> {{pages}}</p>
+					<form method="POST" action="{% url 'pta_output' %}" enctype="multipart/form-data">
+					{% csrf_token %}
+						<input type="hidden" name="pdf_file" value="{{pdf_file}}">
+						<input type="hidden" name="pages" value="{{pages}}">
+						<input name="pageno" class="txt form-control border-2 shadow" type="number" min="1" max="{{pages}}" value="{{pgno}}" placeholder="Enter Page no." required><br>
+						{% if msg == 1 %}
+							<audio src="{%static 'pdfread.mp3' %}" controls></audio>
+						{% endif %}
+						{% if msg == 2 %}
+						<input type="text" name="" class="txt form-control border-2 shadow" placeholder="The page is empty" readonly>
+						{% endif %}
+						<button type="submit" class="button form-control btn border border-2 shadow-lg fw-bold mt-3 mb-3">Generate Audio</button>
+					</form>
+				</div>
+			</div>
+	
+
+
+			
+			
+			</form>
+		</div>
+
+	</div>
+
+
+	 <script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+
+
+	{% endblock %}
+</body>
+</html>

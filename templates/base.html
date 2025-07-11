@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<style type="text/css">
+		::placeholder{
+			color:#584420 !important;
+		}
+		.link:hover{
+			color:white !important;  
+		}
+		.link {
+   			position: relative;
+    		text-decoration: none;
+    		color: #ECDCAC !important;
+		}
+
+		.link:after {
+    		content: '';
+		    position: absolute;
+		    width: 0;
+		    height: 2px;
+		    bottom: 0;
+		    left: 0;
+		    background-color: #B49C6C;
+		    transition: width 0.3s ease-in-out;
+		}
+
+		.link:hover:after {
+    		width: 100%;
+		}
+
+
+		.active{
+			color: white !important;
+		}
+
+		.active:after{
+			content: '';
+		    position: absolute;
+		    width: 100%;
+		    height: 2px;
+		    bottom: 0;
+		    left: 0;
+		    background-color: #B49C6C;
+		    transition: width 0.3s ease-in-out;
+		}
+
+		.active i{
+			color: white !important;
+		}
+
+		.input-group:hover{
+			transform:translateY(-3PX);
+			transition: all ease 0.3s;
+		}
+		.btn_nav:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+		}
+		
+
+		li:hover i{
+			color: white !important;
+		}
+
+		@media screen and (max-width: 1024px) and (min-width: 320px) {
+			html{
+				width: 1075px !important;
+				overflow-x: hidden;
+			}
+		  /*.navbar {
+		    width: 1170px !important;
+		  }
+		  .foot{
+		    width:1170px !important;
+		  }
+		  body{
+		  	width: 1170px !important;
+		  }*/
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-expand-lg " style="background-color:  #584420 !important;">
+  		<div class="container-fluid">
+    		<a class="navbar-brand text-light fs-3" href="{% url 'index' %}"><img src="{%static 'images/logo5.jpg' %}" height="60px" width="80px;"><!--<span style="color: #B49C6C">Text</span>Tech--></a>
+    		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      			<ul class="navbar-nav me-auto ms-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
+        			<li class="nav-item">
+          				<a class="nav-link me-3 link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'index' %}">    <i class="icofont-home me-2" style="color:#ECDCAC"></i>Home</a>
+        			</li>
+        			<li class="nav-item">
+          				<a class="nav-link  me-2 link {% if request.path == '/about_us' %}active{% endif %}" href="{% url 'about_us' %}"><i class="icofont-info-circle me-2" style="color:#ECDCAC"></i>About Us</a>
+        			</li>
+        		`	<li class="nav-item">
+          				<a class="nav-link me-3 link {% if request.path == '/allblog' %}active{% endif %}" href="{% url 'allblog' %}"><i class="icofont-bebo me-2" style="color:#ECDCAC"></i>Blogs</a>
+        			</li>
+        			<li class="nav-item">
+          				<a class="nav-link me-3 link {% if request.path == '/allcontentcreator' %}active{% endif %}" href="{% url 'allcontentcreator' %}"><i class="icofont-pen-alt-1 me-2" style="color:#ECDCAC"></i>Creators</a>
+        			</li>
+        			<li class="nav-item">
+          				<a class="nav-link me-3 link {% if request.path == '/contact' %}active{% endif %}" href="{% url 'contact' %}"><i class="icofont-phone me-2" style="color:#ECDCAC"></i>Contact Us</a>
+        			</li>
+
+        			<li class="nav-item">
+          				<a class="nav-link me-3 link {% if request.path == '/livenews' %}active{% endif %}" href="{% url 'livenews' %}"><i class="icofont-news me-2" style="color:#ECDCAC"></i>Live News</a>
+        			</li>
+      			</ul>
+      			<form class="d-flex" role="search">
+        			<a href="{% url 'login' %}"><div class="btn btn_nav  me-4 border border-2 pt-2 pb-2 pe-4 ps-4 rounded-pill fw-bold" style="background-color:#ECDCAC; color:#584420; border-color: #ECDCAC !important;"><i class="icofont-user me-2" style="color:#584420"></i>Login</div></a>
+        			<a href="{% url 'register' %}"><div class="btn btn_nav me-4 border border-2 pt-2 pb-2 pe-3 ps-3 rounded-pill fw-bold" style="background-color: transparent; color:#ECDCAC; border-color: #ECDCAC !important;"><i class="icofont-users me-2" style="color:#ECDCAC"></i>Sign In</div></a>
+
+      			</form>
+    		</div>
+  		</div>	
+	</nav>
+
+
+<div class="container-fluid">
+	{% block content %}
+	{% endblock %}
+</div>
+
+	
+	<div class="row pt-5" style="background-color: #584420; color:white">
+		<div class="col-md-1"></div>
+		<div class="col-md-3">
+			<h3><span style="color:#B49C6C">Text</span>Tech</h3>
+			<p style="color:#ECDCAC" class="mt-3 me-3"> TextTech provide a diverse range of tools, you can effortlessly transform, refine, and optimize your text in ways you never thought possible.</p>
+			<a href="https://www.instagram.com/" style="text-decoration: none;" class="social-icon"><i class="icofont-instagram me-2" style="color:#ECDCAC"></i></a>
+			<a href="https://www.linkedin.com/home" style="text-decoration: none;" class="social-icon"><i class="icofont-linkedin me-2" style="color:#ECDCAC"></i></a>
+			<a href="https://twitter.com/" style="text-decoration: none;" class="social-icon"><i class="icofont-twitter me-2" style="color:#ECDCAC"></i></a>
+			<a href="https://www.youtube.com/" style="text-decoration: none;" class="social-icon"><i class="icofont-youtube-play me-2" style="color:#ECDCAC"></i></a>
+			<a href="https://www.facebook.com/" style="text-decoration: none;" class="social-icon"><i class="icofont-facebook me-2" style="color:#ECDCAC"></i></a>
+		</div>
+		<div class="col-md-2">
+			<h3><span style="color:#B49C6C">Our</span> company</h3>
+			<div class="mt-3" style="line-height: 30px">
+				<a class="link" href="{% url 'index' %}" style="text-decoration: none; color:#ECDCAC">Home</a><br>
+				<a class="link" href="" style="text-decoration: none; color:#ECDCAC">About</a><br>
+				<a class="link" href="{% url 'allblog' %}" style="text-decoration: none; color:#ECDCAC">Blog</a><br>
+				<a class="link" href="{% url 'contact' %}" style="text-decoration: none; color:#ECDCAC">Contact Us</a><br>
+				<a class="link" href="{% url 'allcontentcreator' %}" style="text-decoration: none; color:#ECDCAC">Creators</a><br>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<h3><span style="color:#B49C6C">Our</span> Services</h3>
+			<div class=" mt-3" style="line-height: 30px">
+				<a class="link" href="{% url 'text_to_speech' %}" style="text-decoration: none; color:#ECDCAC">Text-to-Speech</a><br>
+				<a class="link" href="{% url 'speech_to_text' %}" style="text-decoration: none; color:#ECDCAC">Speech-to-Text</a><br>
+				<a class="link" href="{% url 'word_cloud' %}" style="text-decoration: none; color:#ECDCAC">Word Cloud</a><br>
+				<a class="link" href="{% url 'sentiment_analysis' %}" style="text-decoration: none; color:#ECDCAC">Sentiment Analysis</a><br>
+				<a class="link" href="{% url 'spelling_checker' %}" style="text-decoration: none; color:#ECDCAC">Spelling Checker</a><br>
+			</div>
+		</div>
+		<div class="col-md-3">
+
+			<div class="row">
+				<div class="col-md-4">
+					<img src="{%static 'images/feature10.jpg' %}" height="100px" width="120%">
+				</div>
+				<div class="col-md-4">
+					<img src="{%static 'images/feature12.jpg' %}" height="100px;" width="120%">
+				</div>
+				<div class="col-md-4">
+					<img src="{%static 'images/feature17.jpg' %}" height="100px;" width="120%">
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col-md-4">
+					<img src="{%static 'images/feature5.webp' %}" height="100px" width="120%">
+				</div>
+				<div class="col-md-4">
+					<img src="{%static 'images/feature7.png' %}" height="100px" width="120%">
+				</div>
+				<div class="col-md-4">
+					<img src="{%static 'images/feature6.jpg' %}" height="100px" width="120%">
+				</div>
+			</div>
+
+
+			
+		</div>
+		<div class="col-md-1"></div>
+		<center><hr class="mt-5" style="color:#B49C6C; width: 80%;"></center>
+		<div class="row">
+			<div class="col-md-12">
+				<p style="color:#ECDCAC; text-align: center"><i class="icofont-copyright me-2"></i>2024 All Rights Reserved By <span style="color:#B49C6C">Tech</span></p>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+
+
+<!--<h3><span style="color:#B49C6C">News</span>Letter</h3>
+			<p style="color:#ECDCAC" class="mt-3 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<div class="input-group" style="border-color: #584420;">
+				<input type="email" placeholder="Enter your email" class="form-control shadow-none border-0" style="background-color: #B4A474 !important;">
+				<button class="btn fw-bold shadow-lg" type="button" style="background-color:#ECDCAC; color:#584420 !important; ">Submit</button>
+			</div>-->
+
+
+<!--
+	<nav class="navbar navbar-expand-lg pt-3 pb-3" style="background-color:  #584420;">
+  		<div class="container-fluid">
+    		<a class="navbar-brand text-light fs-3" href="#" ><span style="color: #B49C6C">Text</span>Tech</a>
+    		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      			<div class="navbar-nav ms-auto ">
+        			<a class="nav-link me-4 link" aria-current="page" href="{% url 'index' %}">Home</a>
+
+        			<a class="nav-link me-4 link" href="#">About Us</a>
+
+        			<a class="nav-link me-4 link" href="{% url 'allblog' %}">Blogs</a>
+
+        			<a class="nav-link me-4 link" href="{% url 'allcontentcreator' %}">Creators</a>
+
+        			<a class="nav-link me-4 link" href="{% url 'contact' %}">Contact Us</a>
+
+        			<a class="nav-link btn_nav me-4 border pt-1 pb-1 pe-4 ps-4 rounded fw-bold" href="{% url 'login' %}" style="background-color:#ECDCAC; color:#584420 !important; border-color: #ECDCAC !important; margin-left: 150px;">Login</a>
+
+         			<a class="nav-link btn_nav me-4 border pt-1 pb-1 pe-3 ps-3 rounded fw-bold" href="{% url 'register' %}" style="background-color: transparent; color:#ECDCAC !important; border-color: #ECDCAC !important; ">Sign In</a>
+      			</div>
+		    </div>
+  		</div>
+	</nav>
+-->

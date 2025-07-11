@@ -1,0 +1,158 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		h1{
+			color: #584420;
+		}
+		p{
+			text-align: justify;
+			color: #584420;
+		}
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+		.button{
+			background-color: #ECDCAC;
+			color: #584420; 
+			padding-top: 10px; 
+			padding-bottom: 10px; 
+			padding-left: 20px; 
+			padding-right: 20px; 
+			border-color: #584420 !important; 
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+
+		
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: #584420 !important;
+			box-shadow:2px  2px 2px #584420 !important;
+			color: #ECDCAC !important;
+		}
+
+		 body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+	</style>
+	
+
+</head>
+<body>
+	<div class="row p-3 ">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<form method="POST" action="">
+				{% csrf_token %}
+			<center><h1 class="text-center border-bottom border-2  pb-2" style="border-color:#584420 !important; "><span style="color: #B49C6C">Word</span> Cloud</h1>
+			<p data-aos="zoom-in">Welcome to our word cloud generator, where words take shape in a visually captivating display. In other words ,our tool transform words into a dynamic visual representation that highlights the essence of any text. With customizable features and intuitive controls, you can tailor your word cloud to suit your specific needs and preferences.</p></center>
+
+			<div class="row">
+				<div class="col-md-5 mt-3" data-aos="fade-right">
+					<img src="{%static 'wordcloud.png' %}" width="100%" height="340px"><br>
+				</div>
+				<div class="col-md-7" data-aos="fade-left">
+					<form method="POST" action="">
+					{% csrf_token %}
+					<label class="fs-6 fw-bold mb-2 ">Your Text</label> <br>
+					<textarea name="text" class="txt form-control border-2 shadow" rows="10" readonly>{{data}}</textarea>
+					<a href="{%static 'wordcloud.png' %}" class="button form-control btn border border-2 shadow-lg fw-bold mt-3 mb-3" download><i class="icofont-download me-2"></i>Download</a>
+					</form>
+				</div>
+			</div>
+
+
+			<!--<img src="{%static 'wordcloud.png' %}" width="100%" height="340px"><br>
+			<form method="POST" action="">
+				{% csrf_token %}
+			<label class="fs-6 fw-bold mt-2 mb-2 ">Text</label> <br>
+			<textarea name="text" class="txt form-control border-2 shadow" rows="3" readonly>{{data}}</textarea>
+			</form>-->
+		</div>
+
+	</div>
+
+	<script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+
+	{% endblock %}
+</body>
+</html>
+
+
+
+
+
+<!--
+
+	<div class="row p-5">
+		<div class="col-md-4"></div>
+		<div class="col-md-6">
+			<form method="POST" class="border rounded-4 ps-5 pe-5 pt-3 pb-3  " action="" style="background-color: #584420">
+				{% csrf_token %}
+				<h2 class="text-center border-bottom border-2 text-light  pb-2" style="border-color:#ECDCAC !important; "><span style="color: #B49C6C">Word</span> Cloud</h2>
+
+				<img src="{%static 'wordcloud.png' %}" width="100%" height="300px"><br>
+
+				<label class="fs-6 fw-bold mt-2 mb-2 ">Text</label> <br>
+				<textarea name="text" class="txt form-control border-2 shadow" rows="3" readonly>{{data}}</textarea>
+				
+
+				
+
+			</form>
+		
+		</div>
+	</div>
+
+
+
+	<style type="text/css">
+		label{
+			color: #ECDCAC;
+		}
+
+		.txt{
+			background-color: #B4A474 !important;
+			color: #584420 !important;
+			border-color: white !important;
+			box-shadow:2px 2px 2px white !important;
+		}
+
+		.button{
+			background-color: #ECDCAC;
+			color: #584420; 
+			padding-top: 10px; 
+			padding-bottom: 10px; 
+			padding-left: 20px; 
+			padding-right: 20px; 
+			border-color: #ECDCAC !important; 
+			box-shadow:2px 2px 2px #ECDCAC !important;
+		}
+
+		
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: white !important;
+			box-shadow:2px  2px 2px white !important
+		}
+	</style>
+-->

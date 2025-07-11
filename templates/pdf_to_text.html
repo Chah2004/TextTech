@@ -1,0 +1,96 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		h1{
+			color: #584420;
+		}
+		p{
+			text-align: justify;
+			color: #584420;
+		}
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+
+		.button{
+			background-color: #ECDCAC;
+			color: #584420; 
+			padding-top: 10px; 
+			padding-bottom: 10px; 
+			padding-left: 20px; 
+			padding-right: 20px; 
+			border-color: #584420 !important; 
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+
+		
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: #584420 !important;
+			box-shadow:2px  2px 2px #584420 !important;
+			color: #ECDCAC !important;
+		}
+		   body{
+      overflow-x: hidden;
+    }
+	</style>
+</head>
+<body>
+	<div class="row p-3 ">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<center><h1 class="text-center border-bottom border-2  pb-2" style="border-color:#584420 !important; "><span style="color: #B49C6C">PDF-To</span>-Text</h1>
+			<p class="mb-5" data-aos="zoom-in">Are you looking to extract text from your PDF documents quickly and effortlessly? You're in the right place! Our PDF to Text Converter provides a seamless solution for converting your PDF files into plain text format. With our intuitive tool, you can easily extract textual content from PDFs for a variety of purposes, whether it's for editing, analysis, or simply extracting information. Say goodbye to manual retyping or cumbersome conversion methods. Our converter streamlines the process, saving you time and effort.</p></center>
+
+			<div class="row">
+				<div class="col-md-5" data-aos="fade-right">
+					<img src="{%static 'images/feature15.jpg' %}" width="100%" height="310px"><br>
+				</div>
+				<div class="col-md-7" style="margin-top: 70px;" data-aos="fade-left">
+					<form method="POST" action="" enctype="multipart/form-data">
+					{% csrf_token %}
+					<label class="fs-6 fw-bold mt-2 mb-2 ">Import File</label> <br>
+					<input name="pdf" class="border-2 shadow" type="file" style="color: #584420;" accept=".pdf" required><br><br>
+
+					<button type="submit" class="button form-control btn border border-2 shadow-lg fw-bold mt-3 mb-3">Submit</button>
+					</form>
+				</div>
+			</div>
+
+
+			<!--<img src="{%static 'images/feature15.jpg' %}" width="100%" height="300px"><br>
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+			<label class="fs-6 fw-bold mt-2 mb-2 ">Import File</label> <br>
+			<input name="pdf" class="border-2 shadow" type="file" style="color: #584420;">
+
+			<button type="submit" class="button form-control btn border border-2 shadow-lg fw-bold mt-3 mb-3">Extract Text</button>
+			</form>-->
+		</div>
+
+	</div>
+
+	 <script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+
+
+	{% endblock %}
+</body>
+</html>

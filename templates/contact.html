@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\aos.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<style type="text/css">
+		input{
+			background-color: #584420 !important;
+			color: #ECDCAC !important; 
+			border-color:#ECDCAC !important
+		}
+		::placeholder{
+			color:#ECDCAC !important;
+		}
+		.button{
+			background-color:#ECDCAC !important;
+			color: #584420 !important; 
+			border-color: #ECDCAC !important;
+			box-shadow: 2px 2px 2px #ECDCAC !important;
+		}
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: white !important;
+			box-shadow:2px 2px 2px white !important;
+		}
+		h1{
+			color: #584420;
+		}
+		p{
+			color: #946D43;
+		}
+		.icon{
+			border-color: #946D43 !important;
+		}
+
+		.underline{
+			border-bottom: 3px solid #584420;
+		}
+		body{
+			overflow-x: hidden;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="row mt-5 mb-5 pt-5 pb-5" style="background-color: #584420">
+		<div class="col-md-3"></div>
+		<div class="col-md-6" data-aos="zoom-in">
+			<h1 class="mb-4 text-light" style="text-align: center;"><span style="color: #B49C6C">Con</span>tact Us</h1>
+			<form method="POST" action="">
+				{% csrf_token %}
+				<input type="text" name="name" placeholder="Name" class="form-control shadow-none border-2 border-top-0 border-start-0 border-end-0 rounded-0"><br>
+				<input type="tel" name="number" placeholder="Phone Number"  pattern="[0-9]{10}" class="form-control shadow-none border-2 border-top-0 border-start-0 border-end-0 rounded-0"><br>
+				<input type="email" name="email" placeholder="Email" class="form-control shadow-none border-2 border-top-0 border-start-0 border-end-0 rounded-0"><br>
+				<input type="text" name="msg" placeholder="Message" class="form-control shadow-none border-2 border-top-0 border-start-0 border-end-0 rounded-0 mb-2"><br>
+				<button type="Submit" class="button form-control btn rounded-pill shadow-lg fw-bold">Submit</button><br>
+			</form>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+
+	<div class="row ms-5 me-5 mt-5 mb-5 ps-1 pe-1" >
+		<div class="col-md-3" data-aos="fade-right">
+			<h1 class="underline pb-2 mb-3">Let's talk</h1>
+			<p class="fs-5"><i class="icofont-phone me-1"></i>8264821560</p>
+		</div>
+		<div class="col-md-3" data-aos="fade-right">
+			<h1 class="underline pb-2 mb-3">Email</h1>
+			<p class="fs-5"><i class="icofont-envelope me-1"></i>tamanna23092004@<br>gmail.com</p>
+		</div>
+		<div class="col-md-3" data-aos="fade-left">
+			<h1 class="underline pb-2 mb-3">Address</h1>
+			<p class="fs-5"><i class="icofont-location-pin me-1"></i>Ranjit avenue, B block, Amritsar</p>
+		</div>
+		<div class="col-md-3" data-aos="fade-left">
+			<h1 class="underline pb-2 mb-3">Follow us</h1>
+			<p class="fs-5">
+				<a href="https://www.facebook.com/" style="text-decoration: none; color: #584420;"><i class="icon icofont-facebook border border-2 rounded-circle p-2"></i></a>
+				<a href="https://www.instagram.com/" style="text-decoration: none; color: #584420;"><i class="icon icofont-instagram border border-2 rounded-circle p-2"></i></a>
+				<a href="https://twitter.com/" style="text-decoration: none; color: #584420;"><i class="icon icofont-twitter border border-2 rounded-circle p-2"></i></a>
+				<a href="https://www.linkedin.com/home" style="text-decoration: none; color: #584420;"><i class="icon icofont-linkedin border border-2 rounded-circle p-2"></i></a>
+			</p>
+		</div>
+	</div>
+	<div class="row" data-aos="zoom-in">
+		<div class="col-md-12 mb-5">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6792.654318106313!2d74.85571164377518!3d31.65226794661532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964970d41f533%3A0x8b5b4ed0fe3ba2ce!2sB%20-%20Block%2C%20Ranjit%20Avenue%2C%20Amritsar%2C%20Punjab%20143001!5e0!3m2!1sen!2sin!4v1706556690058!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</div>
+
+	{% if message == 1 %}
+	<script type="text/javascript">
+		alert("data successfully added")
+	</script>
+	{% endif %}
+
+
+		<script src='{%static "js\aos.js" %}'></script>
+		<script>
+		  AOS.init()
+		</script>
+{% endblock %}
+
+
+
+
+</body>
+</html>

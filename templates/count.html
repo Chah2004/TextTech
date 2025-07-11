@@ -1,0 +1,153 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		::placeholder{
+			color:white !important;
+		}
+		h1{
+			color: #584420;
+		}
+		p{
+			text-align: justify;
+			color: #584420;
+		}
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+
+		.button{
+			background-color: #ECDCAC;
+			color: #584420; 
+			padding-top: 10px; 
+			padding-bottom: 10px; 
+			padding-left: 20px; 
+			padding-right: 20px; 
+			border-color: #584420 !important; 
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+
+		
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: #584420 !important;
+			box-shadow:2px  2px 2px #584420 !important;
+			color: #ECDCAC !important;
+		}
+		select#count {
+            background-color: #584420 !important;
+            color: white;
+            border-color: #584420 !important;
+            box-shadow: 2px 2px 2px #584420 !important;
+        }
+        select#count option {
+            background-color: #584420 !important;
+            color: white;
+            border-color: #584420 !important;
+        }
+        
+        select#count option:hover {
+            background-color: #ECDCAC !important;
+            color: #584420 !important;
+        }
+
+        select.form-control {
+            appearance: auto;
+            -webkit-appearance: auto;
+            -moz-appearance: auto;
+        }
+         body{
+        overflow-x: hidden;
+      }
+	</style>
+</head>
+<body>
+	<div class="row p-3 ">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<center><h1 class="text-center border-bottom border-2  pb-2" style="border-color:#584420 !important; "><span style="color: #B49C6C">Text</span> Analyser</h1>
+			<p class="mb-5" data-aos="zoom-in">Our intuitive tool provides a comprehensive analysis of your text, allowing you to delve deeper into its structure and composition. With just a few clicks, you can uncover valuable insights such as word count, sentence count, paragraph count, vowel count, consonant count, and space count.Whether you're aiming to improve the readability of your writing, track progress on a project, or simply satisfy your curiosity, our Text Analyzer offers a seamless and efficient solution.</p></center>
+
+			<div class="row">
+				<div class="col-md-5 mt-4" data-aos="fade-right">
+					<img src="{%static 'images/feature8.jpg' %}" width="100%" height="310px"><br>
+				</div>
+				<div class="col-md-7" data-aos="fade-left">
+					<form method="POST" action="">
+					{% csrf_token %}
+					<textarea name="text" class="txt form-control border-2 shadow" rows="8" placeholder="Write your Text" required>{% if msg == 1 %} {{data}} {% endif %}</textarea><br>
+
+					<select name="count" id="count" class="form-control border-2 shadow mb-2" onfocus='this.size=10;' onblur='this.size=0;' onchange='this.size=1; this.blur();'>
+						<option hidden="">Choose one option</option>
+						<option value="paragraphs">Paragraphs</option>
+		  				<option value="sentences">Sentences</option>
+		  				<option value="words">Words</option>
+		  				<option value="characters">Characters</option>
+		  				<option value="spaces">Spaces</option>
+		  				<option value="vowels">Vowels</option>
+		  				<option value="consonants">Consonants</option>
+		  				<option value="digits">Digits</option>
+					</select>
+
+					<button type="submit" class="button form-control btn border border-2 shadow-lg fw-bold mt-3 mb-3">Count</button>
+					</form>
+				</div>
+			</div>
+
+
+			<!--<img src="{%static 'images/feature8.webp' %}" width="100%" height="300px"><br>
+			<form method="POST" action="">
+				{% csrf_token %}
+			<label class="fs-6 fw-bold mt-2 mb-2 ">Text</label> <br>
+			<textarea name="text" class="txt form-control border-2 shadow" rows="4"></textarea><br>
+
+			<label class="fs-6 fw-bold mt-1 mb-2 ">What you want to count?</label> <br>
+			<select name="count" id="count" class="form-control border-2 shadow mb-2" size="4">
+				<option value="paragraphs">Paragraphs</option>
+  				<option value="sentences">Sentences</option>
+  				<option value="words">Words</option>
+  				<option value="characters">Characters</option>
+  				<option value="spaces">Spaces</option>
+  				<option value="vowels">Vowels</option>
+  				<option value="consonants">Consonants</option>
+  				<option value="digits">Digits</option>
+			</select>
+
+			<button type="submit" class="button form-control btn border border-2 shadow-lg fw-bold mt-3 mb-3">Count</button>
+			</form>-->
+		</div>
+
+	</div>
+
+
+
+
+	{% if msg == 1 %}
+	<script type="text/javascript">
+		alert("Choose one option");
+	</script>
+	{% endif %}
+
+
+  <script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+
+	{% endblock %}
+</body>
+</html>

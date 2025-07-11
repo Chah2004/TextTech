@@ -1,0 +1,165 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow: 2px 2px 3px #584420 !important;
+		}
+		.button{
+			background-color: #584420;
+			color: #ECDCAC;
+			border-color: #584420 !important;
+			box-shadow: 2px 2px 3px #584420 !important;
+		}
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: #ECDCAC;
+			color: #584420;
+			border-color: #584420;
+			box-shadow: 2px 2px 3px #584420;
+		}
+		body{ 
+			overflow-x: hidden;
+			overflow-y: hidden;
+		}
+	
+	</style>
+</head>
+<!--<body style="background-color: white">-->
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<form method="POST" action="" class="ps-5 pe-5 pt-2 pb-5 " enctype="multipart/form-data">
+				{% csrf_token %}
+				<h2 class="text-center border-bottom border-2 pb-2" style="color: #584420; border-color:#584420 !important; "><span style="color: #B49C6C">My</span> Profile</h2>
+
+				<div class="row">
+					<div class="col-md-6" data-aos="fade-right">
+						<label class="fs-6 fw-bold mt-2 mb-2">Name</label><br>
+						<input type="text" name="name" class="txt form-control border-2 shadow-lg" value="{{ user.name }}" readonly><br>
+						
+						<label class="fs-6 fw-bold mt-2 mb-2">Date of birth</label><br>
+						<input type="Date" name="birthday" value="{{ user.birthday }}" class="txt form-control border-2 shadow-lg" readonly><br>
+
+						<label class="fs-6 fw-bold mt-2 mb-2">Age</label><br>
+						<input type="text" min="1" max="200" name="age" value="{{ user.age }}" class="txt form-control border-2 shadow-lg" readonly><br>
+
+						<label class="fs-6 fw-bold mt-2 mb-2">Country</label><br>
+						<input type="text" name="country" value="{{ user.country }}" class="txt form-control border-2 shadow-lg" readonly><br>
+
+						<label class="fs-6 fw-bold mt-2 mb-2">Address</label><br>
+						<textarea name="address" class="txt form-control border-2 shadow-lg" readonly>{{ user.address }}</textarea>
+					</div>
+
+
+					<div class="col-md-6" data-aos="fade-left">
+						<label class="fs-6 fw-bold mt-2 mb-2">Email</label><br>
+						<input type="email" name="email" value="{{ user.email }}" class="txt form-control border-2 shadow-lg" readonly><br>
+
+						<label class="fs-6 fw-bold mt-2 mb-2">Phone No.</label><br>
+						<input type="tel" name="number" value="{{ user.number }}" pattern="[0-9]{10}" class="txt form-control border-2 shadow-lg" readonly><br>
+
+
+						<label class="fs-6 fw-bold mt-2 mb-2">Gender</label><br>
+						<div class="row mb-4">
+							<div class="col-md-6">
+								<div class="form-check txt form-control border-2 shadow-lg" style="padding-left: 30px;">
+				 					<input class="form-check-input" type="radio" value="{{ user.gender }}" name="gender" id="flexRadioDefault1" {% if user.gender == 'male' %} checked {% endif %}>
+				  					<label class="form-check-label ps-1" for="flexRadioDefault1" style="color: white !important">
+				    				Male
+				  					</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-check txt form-control border-2 shadow-lg" style="padding-left: 30px;">
+				  				<input class="form-check-input" type="radio"  value="{{ user.gender }}" name="gender" id="flexRadioDefault2" {% if user.gender == 'female' %} checked {% endif %}>
+				  				<label class="form-check-label ps-1" for="flexRadioDefault2" style="color: white !important">
+				    			Female
+				  				</label>
+								</div>
+							</div>
+						</div>	
+						
+						
+
+
+						<label class="fs-6 fw-bold mt-2 mb-2">State</label><br>
+						<input type="text" name="state" value="{{ user.state }}" class="txt form-control border-2 shadow" readonly><br>
+
+						<label class="fs-6 fw-bold mt-2 mb-2">Pincode</label><br>
+						<input type="text" pattern="[0-9]{6}" value="{{ user.pincode }}" name="pincode" class="txt form-control border-2 shadow" readonly><br>
+					</div>
+				</div>
+
+				
+			<!--</form>-->
+		</div>
+		<div class="col-md-3">
+			<div style="background-image: linear-gradient(to top, white ,white 60%, #584420 , #584420 30%); box-shadow: -5px 2px 3px #584420 !important; height: 470px; color: #584420 ; width: 110%" class="shadow-lg mb-3">
+				<center>
+					{% if msg == 'success' %}
+					<img src="{{user.image.url}}" height="100px" width="100px" style="border-radius: 50%; margin-top: 150px;">
+					{% elif user.image %}
+					<img src="{{user.image.url}}" height="100px" width="100px" style="border-radius: 50%; margin-top: 150px;">
+					{% else %}
+					<img src="{%static 'images/profile_img.jpg' %}" height="100px" width="100px" style="border-radius: 50%; margin-top: 150px;">
+					{% endif %}
+					<h4 class="mt-3 mb-2">{{ user.name }}</h4>
+					<i class="icofont-envelope m-2" style="color:#584420"></i>{{ user.email }}<br>
+					<i class="icofont-phone m-2" style="color:#584420"></i>{{ user.number }}
+					<center><a href="{% url 'editprofile' %}" class="button btn border border-2 shadow-lg mt-4">Edit Profile</a></center>
+				</center>
+			</div>
+
+			<div class="mb-3 p-3 shadow" style="background-color: white; height: 150px; color: #584420 ; box-shadow:-5px 2px 3px #584420 !important; width: 110%">
+				<!--<form method="POST" action="" enctype="multipart/form-data">
+					{% csrf_token %}-->
+					<h4> Select your photo </h4>
+					<input type="file" name="image"><br>
+					<center><button type="submit" class="button btn border border-2 shadow-lg mt-3">Edit</button></center>
+					
+				</form>
+			</div>
+
+		</div>
+
+
+
+		<script>
+    // Disable unselected radio button
+    window.onload = function() {
+        var radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(function(radioButton) {
+            if (!radioButton.checked) {
+                radioButton.disabled = true;
+            }
+        });
+    };
+</script>
+	
+
+	<script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+
+
+	{% endblock %}
+
+</body>
+</html>

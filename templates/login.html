@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\aos.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<style type="text/css">
+		::placeholder{
+			color:#584420 !important;
+		}
+		.txt{
+			background-color: #B4A474 !important;
+			border-color:white !important ; 
+			box-shadow: 2px 2px 2px white !important;
+			color: #584420 !important;
+		}
+		.button{
+			background-color:#ECDCAC !important;
+			color: #584420 !important;
+			border-color: #ECDCAC !important;
+			box-shadow:2px 2px 2px #ECDCAC !important;
+		}
+		.button:hover{
+			transform: translateY(-3PX) !important;
+			transition: all ease 0.3s !important;
+			background-color: white !important;
+			box-shadow:2px 2px 2px white !important 
+		}
+		a:hover{
+			color: white !important;
+		}
+		body{
+			overflow-x: hidden;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<div class="row" style="background-image: linear-gradient(to right, #B4A474 ,#B4A474 65%, #B49C6C , #B49C6C 35%);">
+		<div class="col-md-6" data-aos="fade-right">
+			<center><img src="{%static 'images/login2.png' %}" height="400px;" width="60%" class="mt-5"></center>
+		</div>
+			<!--<div style="margin-top: 60px; color: #946D43;">
+				<center><h1 style="text-align: center" class="pt-5 fw-bold">TextTech</h1>
+					<h4 class="fw-bold pb-5" style="text-align: center"> Your Ultimate Text Transformation Hub!</h4>
+					<img src="{%static 'images/logo7.png' %}" height="150px;" width="50%">
+				</center>
+			</div>-->
+		
+		<div class="col-md-5 border rounded-4 mt-5 mb-5 pe-5 ps-5 pt-3 pb-3 bg-light shadow-lg" style="box-shadow-color: #584420; background-color:#584420 !important; color:#ECDCAC; border-color:#584420 !important" data-aos="fade-left" >
+			<h4 class="text-light"><span style="color: #B49C6C">Text</span>Tech</h4>
+			<h6>Welcome to TextTech</h6>
+			<p>Please sign-in to your account and start the adventure</p>
+			<form method="POST" action="">
+				{% csrf_token %}
+
+				<label class="fw-bold">EMAIL *</label><br>
+				<input type="email" name="email" placeholder="Enter your email" class="txt form-control shadow-lg" required><br>
+
+				<label class="fw-bold">PASSWORD *</label>  <a href="{% url 'forgot' %}" style="color: #ECDCAC; float: right;">Forgot Password</a><br>
+				<input type="password" name="password" placeholder="Enter your password" class="txt form-control shadow-lg " required><br>
+
+				<button type="submit" class="button form-control btn border shadow-lg fw-bold mt-2" >Login</button><br><br>
+
+				
+				Don't have an account yet?&nbsp;<a href="{% url 'register' %}" style="margin-left: 2px; color: #ECDCAC">Register</a>
+
+			</form>
+			
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+<script type="text/javascript">
+	{% if msg == 1 %}
+	alert("INVALID CANDIDATE")
+	{% endif %}
+</script>
+
+<script src='{%static "js\aos.js" %}'></script>
+		<script>
+		  AOS.init()
+		</script>
+
+{% endblock %}
+</body>
+</html>

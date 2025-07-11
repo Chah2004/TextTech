@@ -1,0 +1,77 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		h1{
+			color: #584420;
+		}
+		p{
+			text-align: justify;
+			color: #584420;
+		}
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+		 body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+	</style>
+</head>
+<body>
+	<div class="row p-3 ">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<center><h1 class="text-center border-bottom border-2  pb-2" style="border-color:#584420 !important; "><span style="color: #B49C6C">Text</span> Analyser</h1>
+			<p class="mb-5" data-aos="zoom-in" >Our intuitive tool provides a comprehensive analysis of your text, allowing you to delve deeper into its structure and composition. With just a few clicks, you can uncover valuable insights such as word count, sentence count, paragraph count, vowel count, consonant count, and space count.Whether you're aiming to improve the readability of your writing, track progress on a project, or simply satisfy your curiosity, our Text Analyzer offers a seamless and efficient solution.</p></center>
+
+
+			<div class="row">
+				<div class="col-md-5 mt-4" data-aos="fade-right">
+					<img src="{%static 'images/feature8.webp' %}" width="100%" height="310px"><br>
+				</div>
+				<div class="col-md-7" data-aos="fade-left">
+					<form method="POST" action="">
+					{% csrf_token %}
+					<label class="fs-6 fw-bold mb-2 ">Your Text</label> <br>
+					<textarea name="text" class="txt form-control border-2 shadow" rows="8" readonly>{{data}}</textarea><br>
+
+					<label class="fs-6 fw-bold mb-2 ">Count</label> <br>
+					<input type="text" value="{{msg}}" class="txt form-control border-2 shadow" readonly>
+					</form>
+				</div>
+			</div>
+
+			<!--<img src="{%static 'images/feature8.webp' %}" width="100%" height="300px"><br>
+			<form method="POST" action="">
+				{% csrf_token %}
+			<label class="fs-6 fw-bold mt-2 mb-2 ">Text</label> <br>
+			<textarea name="text" class="txt form-control border-2 shadow" rows="4" readonly>{{data}}</textarea><br>
+
+			<label class="fs-6 fw-bold mt-2 mb-2 ">Count</label> <br>
+			<input type="text" value="{{msg}}" class="txt form-control border-2 shadow" readonly>
+			</form>-->
+		</div>
+
+	</div>
+
+	  <script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+	{% endblock %}
+</body>
+</html>

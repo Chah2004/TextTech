@@ -1,0 +1,141 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'css\bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont\icofont.min.css' %}">
+	<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+	<title></title>
+	<style type="text/css">
+		h1{
+			color: #584420;
+		}
+		p{
+			text-align: justify;
+			color: #584420;
+		}
+		label{
+			color: #584420;
+		}
+		.txt{
+			background-color: #584420 !important;
+			color: white !important;
+			border-color: #584420 !important;
+			box-shadow:2px 2px 2px #584420 !important;
+		}
+		select#count {
+            background-color: #584420 !important;
+            color: white;
+            border-color: #584420 !important;
+            box-shadow: 2px 2px 2px #584420 !important;
+        }
+        select#count option {
+            background-color: #584420 !important;
+            color: white;
+            border-color: #584420 !important;
+        }
+        
+        select#count option:hover {
+            background-color: #ECDCAC !important;
+            color: #584420 !important;
+        }
+
+        select.form-control {
+            appearance: auto;
+            -webkit-appearance: auto;
+            -moz-appearance: auto;
+        }
+
+         body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+	</style>
+</head>
+<body style="color: #584420; ">
+	<div class="row p-3 ">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+			<center><h1 class="text-center border-bottom border-2  pb-2" style="border-color:#584420 !important; "><span style="color: #B49C6C">Linguistic</span> Analysis</h1>
+			<p class="mb-5" data-aos="zoom-in">Linguistic Analysis Tool offers a comprehensive platform to delve into the intricate details of text. With cutting-edge algorithms and state-of-the-art techniques, we provide insightful analyses that uncover the linguistic nuances within your text.</p></center>
+
+
+			<div class="row">
+				<div class="col-md-5 mt-4" data-aos="fade-right">
+					<img src="{%static 'images/feature11.jpg' %}" width="100%" height="310px"><br>
+				</div>
+				<div class="col-md-7" data-aos="fade-left">
+					<form method="POST" action="">
+						{% csrf_token %}
+					<label class="fs-6 fw-bold mb-2 ">Your Text</label> <br>
+					<textarea name="text" class="txt form-control border-2 shadow" rows="10" readonly>{{data}}</textarea><br>
+
+
+					{% if msg1 == "yes" %}
+				
+					{% for token in doc %}
+
+							{% if token.pos_ == linguistic %}
+				             {{token.text}} : {{token.pos_}}<br>
+				            
+				            {% endif %}
+					{% endfor %}
+
+					{% else %}
+
+				            <input type="text" name="" class="txt form-control border-2 shadow" value="{{name}} is not in your text" readonly>
+				            {% endif %}
+					</form>
+				</div>
+			</div>
+
+
+			<!--<img src="{%static 'images/feature11.jpg' %}" width="100%" height="300px"><br>
+			<form method="POST" action="">
+				{% csrf_token %}
+			<label class="fs-6 fw-bold mt-2 mb-2 ">Text</label> <br>
+			<textarea name="text" class="txt form-control border-2 shadow" rows="3" readonly>{{data}}</textarea>
+
+
+
+		
+			{% for token in doc %}
+					{% if token.pos_ == linguistic %}
+		            <p>{{token.text}}:{{token.pos_}}</p>
+		            {% else %}
+		            <p>{{name}} is not in the text</p>
+		            {% endif %}
+			{% endfor %}
+			
+				
+
+
+
+
+			
+
+			
+					{% for token in doc %}
+					{% if token.pos_ == "NOUN" %}
+		             
+		             <p>{{token.text}}:{{token.pos_}}</p>
+		             {% endif %}
+					
+					{% endfor %}
+			
+			</form>-->
+		</div>
+
+	</div>
+
+
+	  <script src='{%static "js\aos.js" %}'></script>
+    <script>
+      AOS.init()
+    </script>
+    
+	{% endblock %}
+</body>
+</html>
