@@ -74,19 +74,22 @@ TextTech/
 ```bash
 git clone https://github.com/Chah2004/TextTech.git
 cd TextTech
+```
 
 -Create & activate a virtual environment
 ```bash
 python3 -m venv venv
 source venv/bin/activate     # Linux / macOS
 venv\Scripts\activate        # Windows
-
+```
 -Install dependencies
 ```bash
 pip install -r requirements.txt
+```
 If you don’t have requirements.txt, create it:
 ```bash
 Django>=4.0
+```
 
 **Running Locally**
 
@@ -94,19 +97,19 @@ Django>=4.0
 ```bash
 python manage.py makemigrations
 python manage.py migrate
-
+```
 -Create a superuser (optional but recommended)
 ```bash
 python manage.py createsuperuser
-
+```
 -Start development server
 ```bash
 python manage.py runserver
-
+```
 -Open in your browser
 ```bash
 http://127.0.0.1:8000
-
+```
 
 
 
