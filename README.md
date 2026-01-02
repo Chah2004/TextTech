@@ -16,7 +16,7 @@ It can serve as a foundation for:
 
 ---
 ## 🚀 Features
-
+```
 ✔️ Sentimental Analysis 
 ✔️ Word Cloud 
 ✔️ Text to Speech
@@ -28,7 +28,7 @@ It can serve as a foundation for:
 ✔️ Spelling Checker
 ✔️ Language Converter
 ✔️ Language Detection and so on
-
+```
 ---
 ## 🧱 Tech Stack
 
@@ -64,7 +64,7 @@ TextTech/
 ├── db.sqlite3            # SQLite database (development)
 ├── manage.py             # Django CLI script
 └── README.md             # This file
-
+```
 ---
 
 ##🚀 Getting Started
